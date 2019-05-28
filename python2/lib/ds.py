@@ -1,4 +1,8 @@
 class Model(object):
+  def __init__(self, key):
+    # type: (str) -> Model
+    self.key = key
+
   @classmethod
   def _get(cls, get_method, key):
     # type: (Callable[(str]->Model], str) -> Model
@@ -14,3 +18,4 @@ class Model(object):
 def get(key):
   # type: (str) -> Any
   print('get() with key = %s' % key)
+  return Model(key=key)
