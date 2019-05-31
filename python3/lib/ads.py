@@ -9,17 +9,14 @@ class Model(ds.Model):
   async def get(cls, key: str) -> Model:
     print('Model async get()')
 
-    loop = asyncio.get_running_loop()
-
     def callback(k):
-      get_task = loop.create_task(get(k))
-      loop.call_soon(get_task)
+      get_task = asyncio.create_task(get(k))
+      return asyncio.wait({get_task})
 
-      # Need to make sure the task runs here
+    done, unfinished = await Model._get(callback, key)
 
-      return get_task.result()
-
-    return Model._get(callback, key)
+    # Missing some error handling here - what if not finished, etc.
+    return done.pop().result()
 
 
 async def get(key: str) -> typing.Any:
