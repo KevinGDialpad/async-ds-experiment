@@ -29,3 +29,12 @@ Model base _get()
 async get() with key = my_key
 Got a model with key=my_key
 ```
+
+# References
+Python docs:
+* [Coroutines and Tasks](https://docs.python.org/3/library/asyncio-task.html)
+* [Event Loop](https://docs.python.org/3/library/asyncio-eventloop.html)
+
+People solving similar problems:
+* [How to wait for coroutines to complete synchronously within method if event loop is already running?](https://stackoverflow.com/questions/39470824/how-to-wait-for-coroutines-to-complete-synchronously-within-method-if-event-loop)
+* [Asyncio and an attempt to run loop.run_until_complete() from within a running loop](https://mail.python.org/pipermail/python-list/2016-April/707139.html)
