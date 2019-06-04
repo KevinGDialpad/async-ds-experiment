@@ -18,7 +18,7 @@ When everything is on Python 3, nothing is calling ds/. We can move all the ds/ 
 The left-hand side can be called form Python 2 or form Python 3. The right-hand side is Python 3 only.
 
 `ds.Model._get()` contains all the get logic that's not part of the transport layer (see the [current `Model.get()` on master](https://github.com/dialpad/firespotter/blob/d472b03266f16efd90aec0b3eb4d583750be7bdc/common/lib3/ds/base.py#L209-L223)).
-It's called form both `ds.Model.get()` and `ads.Model.get()`, with are just wrappers. The wrappers call `_get()` and make sure it uses the correct transport `get()`.
+It's called form both `ds.Model.get()` and `ads.Model.get()`, which are just wrappers. The wrappers call `_get()` and make sure it uses the correct transport `get()`.
 
 So when you use ds/, it goes `ds.Model.get()` -> `ds.Model._get()` -> `ds.get()`.
 
